@@ -1,0 +1,49 @@
+<%- include("partials/header") %>
+
+<h4 class="mb-4">Admin Dashboard</h4>
+
+<div class="row g-3">
+  <div class="col-md-3">
+    <div class="card text-center shadow">
+      <div class="card-body">
+        <h6>Total Tickets</h6>
+        <h3><%= total %></h3>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <div class="card text-center shadow border-warning">
+      <div class="card-body">
+        <h6>Open</h6>
+        <h3><%= open %></h3>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <div class="card text-center shadow border-info">
+      <div class="card-body">
+        <h6>In Progress</h6>
+        <h3><%= inProgress %></h3>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <div class="card text-center shadow border-success">
+      <div class="card-body">
+        <h6>Resolved</h6>
+        <h3><%= resolved %></h3>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="mt-4">
+  <a href="/admin/tickets" class="btn btn-primary">
+    Manage Tickets
+  </a>
+</div>
+
+<%- include("partials/footer") %>

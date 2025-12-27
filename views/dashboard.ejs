@@ -1,0 +1,39 @@
+<%- include("partials/header") %>
+
+<h3 class="mb-4">Dashboard</h3>
+
+<div class="row g-3">
+  <div class="col-md-4">
+    <a href="/tickets/new" class="text-decoration-none">
+      <div class="card shadow-sm text-center">
+        <div class="card-body">
+          <h5>Raise Ticket</h5>
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <div class="col-md-4">
+    <a href="/my-tickets" class="text-decoration-none">
+      <div class="card shadow-sm text-center">
+        <div class="card-body">
+          <h5>My Tickets</h5>
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <% if (user.role === "admin") { %>
+    <div class="col-md-4">
+      <a href="/admin/tickets" class="text-decoration-none">
+        <div class="card shadow-sm text-center border-danger">
+          <div class="card-body">
+            <h5 class="text-danger">Admin Panel</h5>
+          </div>
+        </div>
+      </a>
+    </div>
+  <% } %>
+</div>
+
+<%- include("partials/footer") %>

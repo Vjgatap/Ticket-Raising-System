@@ -1,0 +1,58 @@
+<%- include("partials/header") %>
+<%- include("partials/alerts") %>
+
+<h4 class="mb-3">My Tickets</h4>
+
+<table class="table table-bordered table-hover bg-white shadow">
+  <thead class="table-dark">
+    <tr>
+      <th>Title</th>
+      <th>Priority</th>
+      <th>Status</th>
+      <th>Assigned To</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% if (tickets.length === 0) { %>
+      <tr>
+        <td colspan="4" class="text-center text-muted">
+          No tickets raised yet
+        </td>
+      </tr>
+    <% } %>
+
+    <% tickets.forEach(t => { %>
+      <tr>
+        <td><%= t.title %></td>
+
+        <td>
+          <span class="badge 
+            <%= t.priority === 'High' ? 'bg-danger' :
+                t.priority === 'Medium' ? 'bg-warning' : 'bg-secondary' %>">
+            <%= t.priority %>
+          </span>
+        </td>
+
+        <td>
+          <span class="badge 
+            <%= t.status === 'Open' ? 'bg-warning' :
+                t.status === 'In Progress' ? 'bg-info' :
+                t.status === 'Resolved' ? 'bg-success' :
+                'bg-secondary' %>">
+            <%= t.status %>
+          </span>
+        </td>
+
+        <td>
+          <%= t.assignedTo ? t.assignedTo.name : "Pending" %>
+        </td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>
+
+<a href="/dashboard" class="btn btn-secondary mt-3">Back to Dashboard</a>
+
+<%- include("partials/footer") %>
+
